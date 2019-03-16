@@ -46,6 +46,7 @@ namespace Fatumbot
         public static string rnsource = "QRNG";
         public static string mntskey;
         public static string logpath;
+        public static NumberFormatInfo nfi = new NumberFormatInfo();
 
         public static string[] SplitIt1(string buf)
         {
@@ -1110,8 +1111,8 @@ namespace Fatumbot
                             SetDefault(u);
                         }
                         u = (int)usessions[message.Chat.Id];
-                        if (Double.TryParse(entry[0].Replace('.', ','), out enlat)) { upresets[u, 1] = enlat; }
-                        if (Double.TryParse(entry[1].Replace('.', ','), out enlon)) { upresets[u, 2] = enlon; }
+                        if (Double.TryParse(entry[0], NumberStyles.Any, CultureInfo.InvariantCulture, out enlat)) { upresets[u, 1] = enlat; }
+                        if (Double.TryParse(entry[1], NumberStyles.Any, CultureInfo.InvariantCulture, out enlon)) { upresets[u, 2] = enlon; }
                         bool issent = false;
                         int rtr = 0;
                         while ((issent == false) && (rtr < 5))
@@ -1355,6 +1356,7 @@ namespace Fatumbot
 
         public static void Main(string[] args)
         {
+            nfi.NumberDecimalSeparator = ".";
             string cfgtxt = System.IO.File.ReadAllText("config.txt");
             string[] cfg = SplitIt1(cfgtxt);
             ProxyURL = cfg[1];
