@@ -3,7 +3,7 @@ INSTRUCTIONS
 Select the center of the map:
 
 The Points will be calculated inside a given radius around the center. It is recommended to set your current location as a center.
-By default calculation area is set to 10000m circle around Moscow.  
+By default calculation area is set to 10000m circle around London.  
 To change the area, you can send your current location via telegram mobile-app in-built function "Send location", it will be set as a map center.
 If you are using Telegram Desktop, find desired location on Google Maps and sen a link to it like this:  https://www.google.com/maps/@54.9831153,73.3224661,21z
 (The link should have the same format as in example)
